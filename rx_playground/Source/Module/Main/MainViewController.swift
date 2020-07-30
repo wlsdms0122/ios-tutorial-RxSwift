@@ -42,7 +42,56 @@ class MainViewController: UIViewController {
     }
     
     private func bind() {
-        /* Write down here */
+        let email = BehaviorSubject<String>(value: "")
+        
+        emailTextField.rx.text
+            .orEmpty
+            .bind(to: email)
+            .disposed(by: disposeBag)
+        
+        let isEmailValidated = email
+            .compactMap { [weak self] in self?.validate(email: $0) }
+        
+        Observable.combineLatest(email, isEmailValidated)
+            .map { $0.isEmpty || $1 }
+            .distinctUntilChanged()
+            .asDriver(onErrorJustReturn: false)
+            .drive(onNext: { [weak self] in self?.setEmail(validated: $0) })
+            .disposed(by: disposeBag)
+        
+        let password = BehaviorSubject<String>(value: "")
+        
+        passwordTextField.rx.text
+            .orEmpty
+            .bind(to: password)
+            .disposed(by: disposeBag)
+        
+        let isPasswordValidated = password
+            .compactMap { [weak self] in self?.validate(password: $0) }
+        
+        Observable.combineLatest(password, isPasswordValidated)
+            .map { $0.isEmpty || $1 }
+            .distinctUntilChanged()
+            .asDriver(onErrorJustReturn: false)
+            .drive(onNext: { [weak self] in self?.setPassword(validated: $0) })
+            .disposed(by: disposeBag)
+        
+        let isValidated = Observable.combineLatest(isEmailValidated, isPasswordValidated)
+            .map { $0 && $1 }
+            .distinctUntilChanged()
+            .asDriver(onErrorJustReturn: false)
+            
+        isValidated.drive(signUpButton.rx.isEnabled)
+            .disposed(by: disposeBag)
+        
+        isValidated
+            .drive(onNext: { [weak self] in self?.setSignUp(enabled: $0) })
+            .disposed(by: disposeBag)
+        
+        signUpButton.rx.tap
+            .withLatestFrom(Observable.combineLatest(email, password))
+            .subscribe(onNext: { [weak self] in self?.signUp(email: $0, password: $1) })
+            .disposed(by: disposeBag)
     }
     
     private func signUp(email: String, password: String) {
