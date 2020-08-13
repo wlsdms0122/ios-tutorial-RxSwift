@@ -103,21 +103,10 @@ class MainViewController: UIViewController {
     }
     
     private func signUp(email: String, password: String) {
-        let alertController = UIAlertController(
-            title: "🎉 Wellcome!! 🎉",
-            message: "Your email is \(email)",
-            preferredStyle: .alert
-        )
+        let viewController = ListViewController.instantiate(email: email)
+        viewController.modalPresentationStyle = .fullScreen
         
-        alertController.addAction(
-            UIAlertAction(
-                title: "Confirm",
-                style: .default,
-                handler: { _ in alertController.dismiss(animated: true, completion: nil) }
-            )
-        )
-        
-        present(alertController, animated: true, completion: nil)
+        present(viewController, animated: true, completion: nil)
     }
     
     private func validate(email: String) -> Bool {
