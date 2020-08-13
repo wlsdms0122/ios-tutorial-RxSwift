@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F317EC3024E7E36D0098937B /* String+split.swift in Sources */ = {isa = PBXBuildFile; fileRef = F317EC2F24E7E36D0098937B /* String+split.swift */; };
+		F317EC3424E7EBDB0098937B /* UIColor+hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = F317EC3324E7EBDB0098937B /* UIColor+hex.swift */; };
 		F317EC3224E7E9650098937B /* ColorTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F317EC3124E7E9650098937B /* ColorTableViewCell.swift */; };
 		F33A775424D06236007866B2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F33A775324D06236007866B2 /* AppDelegate.swift */; };
 		F33A775624D06236007866B2 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F33A775524D06236007866B2 /* SceneDelegate.swift */; };
@@ -18,9 +20,12 @@
 		F33A777324D0660C007866B2 /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = F33A777224D0660C007866B2 /* RxCocoa */; };
 		F33A777524D0660C007866B2 /* RxRelay in Frameworks */ = {isa = PBXBuildFile; productRef = F33A777424D0660C007866B2 /* RxRelay */; };
 		F37D13D824E56FE100CBE4EB /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F37D13D724E56FE100CBE4EB /* ListViewController.swift */; };
+		F37D13DE24E5720100CBE4EB /* String+regex.swift in Sources */ = {isa = PBXBuildFile; fileRef = F37D13DD24E5720100CBE4EB /* String+regex.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		F317EC2F24E7E36D0098937B /* String+split.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+split.swift"; sourceTree = "<group>"; };
+		F317EC3324E7EBDB0098937B /* UIColor+hex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+hex.swift"; sourceTree = "<group>"; };
 		F317EC3124E7E9650098937B /* ColorTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorTableViewCell.swift; sourceTree = "<group>"; };
 		F33A775024D06236007866B2 /* rx_playground.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = rx_playground.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F33A775324D06236007866B2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -31,6 +36,7 @@
 		F33A775F24D06237007866B2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F33A776124D06237007866B2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F37D13D724E56FE100CBE4EB /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
+		F37D13DD24E5720100CBE4EB /* String+regex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+regex.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,6 +91,7 @@
 		F33A776824D06240007866B2 /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				F37D13DC24E571C200CBE4EB /* Extension */,
 				F33A776B24D06255007866B2 /* Model */,
 				F33A776C24D06257007866B2 /* Module */,
 			);
@@ -149,6 +156,16 @@
 				F317EC3124E7E9650098937B /* ColorTableViewCell.swift */,
 			);
 			path = List;
+			sourceTree = "<group>";
+		};
+		F37D13DC24E571C200CBE4EB /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				F37D13DD24E5720100CBE4EB /* String+regex.swift */,
+				F317EC2F24E7E36D0098937B /* String+split.swift */,
+				F317EC3324E7EBDB0098937B /* UIColor+hex.swift */,
+			);
+			path = Extension;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -230,8 +247,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				F33A775824D06236007866B2 /* MainViewController.swift in Sources */,
+				F317EC3424E7EBDB0098937B /* UIColor+hex.swift in Sources */,
+				F37D13DE24E5720100CBE4EB /* String+regex.swift in Sources */,
 				F317EC3224E7E9650098937B /* ColorTableViewCell.swift in Sources */,
 				F33A775424D06236007866B2 /* AppDelegate.swift in Sources */,
+				F317EC3024E7E36D0098937B /* String+split.swift in Sources */,
 				F37D13D824E56FE100CBE4EB /* ListViewController.swift in Sources */,
 				F33A775624D06236007866B2 /* SceneDelegate.swift in Sources */,
 			);

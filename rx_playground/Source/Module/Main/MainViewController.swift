@@ -110,7 +110,7 @@ class MainViewController: UIViewController {
     }
     
     private func validate(email: String) -> Bool {
-        email.regex(pattern: "^\\w+([-+.']\\w+)*@\\w+([-.]\\w+)*\\.\\w+([-.]\\w+)*$")
+        email.regex(pattern: "^\\w+([-+.']\\w+)*@\\w+([-.]\\w+)*\\.\\w+([-.]\\w+)*$") != nil
     }
     
     private func validate(password: String) -> Bool {
@@ -150,12 +150,5 @@ class MainViewController: UIViewController {
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         super.touchesBegan(touches, with: event)
         view.endEditing(true)
-    }
-}
-
-extension String {
-    func regex(pattern: String) -> Bool {
-        let regex = try? NSRegularExpression(pattern: pattern)
-        return regex?.firstMatch(in: self, range: NSRange(location: 0, length: count)) != nil
     }
 }
