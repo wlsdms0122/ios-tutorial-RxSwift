@@ -103,7 +103,7 @@ class MainViewController: UIViewController {
     }
     
     private func signUp(email: String, password: String) {
-        let viewController = ListViewController.instantiate(email: email)
+        let viewController = UINavigationController(rootViewController:  ListViewController.instantiate(email: email))
         viewController.modalPresentationStyle = .fullScreen
         
         present(viewController, animated: true, completion: nil)
