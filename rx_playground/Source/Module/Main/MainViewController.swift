@@ -22,6 +22,14 @@ class MainViewController: UIViewController {
     
     override var preferredStatusBarStyle: UIStatusBarStyle { .lightContent }
     
+    static func instantiate() -> Self {
+        let identifier = String(describing: Self.self)
+        guard let viewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: identifier) as? Self else {
+            fatalError("Fail to instantiate \(identifier) view controller.")
+        }
+        return viewController
+    }
+    
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
